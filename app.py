@@ -20,12 +20,12 @@ with open("config.yml", 'r') as ymlfile:
 # get LINE_CHANNEL_ACCESS_TOKEN from your environment variable
 line_bot_api = LineBotApi(
     config("LINE_CHANNEL_ACCESS_TOKEN",
-           default=conf["line_channel"]["token"])
+           default=os.environ.get('LINE_ACCESS_TOKEN'))
 )
 # get LINE_CHANNEL_SECRET from your environment variable
 handler = WebhookHandler(
     config("LINE_CHANNEL_SECRET",
-           default=conf["line_channel"]["secret"])
+           default=os.environ.get('LINE_CHANNEL_SECRET'))
 )
 
 
