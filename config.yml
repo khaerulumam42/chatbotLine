@@ -1,0 +1,9 @@
+
+line_channel:
+    id: 1610519459
+    secret: 2ce55c7878fee1211b7d11589ffade37
+    token: gmRHUm87BmtBjJ0tELYh3SbByqrtsgEjBJ9KcuAVRoxr5s1hPeXlPgTqFDkaFtQEs9a5bTnM+0s8xAcnYk/Val6Cf6GSYhOkp+pwYv/Wx2UfbkIakR1+dHjfup5bmdqCEh+3Y2dM9wAyjlDpBG+H6AdB04t89/1O/w1cDnyilFU=
+    
+server:
+    url: localhost:8080/line_bot
+    header: application/json, abcdefgh

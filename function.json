@@ -1,0 +1,9 @@
+{
+    "query": {
+        "search":"SELECT <parameters> WHERE <parameter> like '%token%'",
+        "search_by_book":"SELECT <parameters> WHERE book_name like '%token%'",
+        "search_by_author":"SELECT <parameters> WHERE author like '%token%'",
+        "search_by_date":"SELECT <parameters> WHERE datetime like DATE",
+        "borrowed_book":"SELECT <parameters> WHERE id=<id>"
+    }
+}
