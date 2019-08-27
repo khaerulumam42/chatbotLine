@@ -7,6 +7,11 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
+from OpenSSL import SSL
+context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
+context.use_privatekey_file('server.key')
+context.use_certificate_file('server.crt')
+
 app = Flask(__name__)
 
 with open("config.yml", 'r') as ymlfile:
@@ -27,19 +32,19 @@ def check_status(unique_id):
     return query
 
 
-# @app.route("/webhook", methods=['POST'])
-# def callback():
-#     signature = request.headers['X-Line-Signature']
+@app.route("/webhook", methods=['POST'])
+def callback():
+    signature = request.headers['X-Line-Signature']
 
-#     body = request.get_data(as_text=True)
-#     app.logger.info("Request body: " + body)
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
 
-#     try:
-#         handler.handle(body, signature)
-#     except InvalidSignatureError:
-#         abort(400)
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
 
-#     return 'OK'
+    return 'OK'
 
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -54,4 +59,4 @@ def handle_text_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, ssl_context='adhoc')
+    app.run(host='0.0.0.0', port=port, ssl_context=context)
