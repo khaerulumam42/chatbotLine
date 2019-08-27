@@ -7,11 +7,6 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
-from OpenSSL import SSL
-context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
-context.use_privatekey_file('server.key')
-context.use_certificate_file('server.crt')
-
 app = Flask(__name__)
 
 with open("config.yml", 'r') as ymlfile:
@@ -59,4 +54,4 @@ def handle_text_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, ssl_context=context)
+    app.run(host='0.0.0.0', port=port, ssl_context=('server.crt', 'server.key'))
