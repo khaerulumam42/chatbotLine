@@ -2,31 +2,37 @@ import os
 import yaml
 
 from decouple import config
-from flask import (
-    Flask, request, abort
-)
-from linebot import (
-    LineBotApi, WebhookHandler
-)
+from flask import Flask, request, abort
+from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-)
+from linebot.models import MessageEvent, TextMessage, TextSendMessage
+
 app = Flask(__name__)
 
 with open("config.yml", 'r') as ymlfile:
     conf = yaml.load(ymlfile)
 
-# get LINE_CHANNEL_ACCESS_TOKEN from your environment variable
 line_bot_api = LineBotApi(
     config("LINE_CHANNEL_ACCESS_TOKEN",
-           default=os.environ.get('LINE_ACCESS_TOKEN'))
+           default=conf['line_channel']['token'])
 )
-# get LINE_CHANNEL_SECRET from your environment variable
+
 handler = WebhookHandler(
     config("LINE_CHANNEL_SECRET",
-           default=os.environ.get('LINE_CHANNEL_SECRET'))
+           default=conf['line_channel']['secret'])
 )
+
+def search(keyword):
+    query = """SELECT book_name, book_author from book WHERE \
+        book_name like '%{}%'""".format(keyword)
+    
+    return query
+
+def check_status(unique_id):
+    query = """SELECT date_start, date_finish from rent WHERE \
+        unique_id={}""".format(unique_id)
+    
+    return query
 
 
 @app.route("/callback", methods=['POST'])
