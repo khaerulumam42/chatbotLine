@@ -27,19 +27,19 @@ def check_status(unique_id):
     return query
 
 
-@app.route("/webhook", methods=['POST'])
-def callback():
-    signature = request.headers['X-Line-Signature']
+# @app.route("/webhook", methods=['POST'])
+# def callback():
+#     signature = request.headers['X-Line-Signature']
 
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
+#     body = request.get_data(as_text=True)
+#     app.logger.info("Request body: " + body)
 
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
+#     try:
+#         handler.handle(body, signature)
+#     except InvalidSignatureError:
+#         abort(400)
 
-    return 'OK'
+#     return 'OK'
 
 
 @handler.add(MessageEvent, message=TextMessage)
