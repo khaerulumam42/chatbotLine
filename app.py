@@ -12,22 +12,18 @@ app = Flask(__name__)
 with open("config.yml", 'r') as ymlfile:
     conf = yaml.load(ymlfile)
 
-line_bot_api = LineBotApi(config("LINE_CHANNEL_ACCESS_TOKEN", \
-                    default=conf['line_channel']['token']))
+line_bot_api = LineBotApi(conf['line_channel']['token'])
+handler = WebhookHandler(conf['line_channel']['secret'])
 
-handler = WebhookHandler(config("LINE_CHANNEL_SECRET", \
-                default=conf['line_channel']['secret']))
 
 def search(keyword):
     query = """SELECT book_name, book_author from book WHERE \
         book_name like '%{}%'""".format(keyword)
-    
     return query
 
 def check_status(unique_id):
     query = """SELECT date_start, date_finish from rent WHERE \
         unique_id={}""".format(unique_id)
-    
     return query
 
 
@@ -53,6 +49,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
+    print(event.message.text)
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text)
