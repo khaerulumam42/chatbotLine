@@ -12,15 +12,11 @@ app = Flask(__name__)
 with open("config.yml", 'r') as ymlfile:
     conf = yaml.load(ymlfile)
 
-line_bot_api = LineBotApi(
-    config("LINE_CHANNEL_ACCESS_TOKEN",
-           default=conf['line_channel']['token'])
-)
+line_bot_api = LineBotApi(config("LINE_CHANNEL_ACCESS_TOKEN", \
+                    default=conf['line_channel']['token']))
 
-handler = WebhookHandler(
-    config("LINE_CHANNEL_SECRET",
-           default=conf['line_channel']['secret'])
-)
+handler = WebhookHandler(config("LINE_CHANNEL_SECRET", \
+                default=conf['line_channel']['secret']))
 
 def search(keyword):
     query = """SELECT book_name, book_author from book WHERE \
