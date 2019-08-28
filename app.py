@@ -35,6 +35,10 @@ def check_status():
         Wait for several days please :)"
     return query
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2b9573ddb5a7e59fee1ed8336653280124647a8
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -65,5 +69,9 @@ def handle_text_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
+<<<<<<< HEAD
     # app.run(host='0.0.0.0', port=port, ssl_context=('server.crt', 'server.key'))
     app.run(host='0.0.0.0', port=port)
+=======
+    app.run(host='0.0.0.0', port=port) #, ssl_context=('server.crt', 'server.key'))
+>>>>>>> c2b9573ddb5a7e59fee1ed8336653280124647a8
