@@ -16,18 +16,26 @@ line_bot_api = LineBotApi(conf['line_channel']['token'])
 handler = WebhookHandler(conf['line_channel']['secret'])
 
 
-def search(keyword):
-    query = """SELECT book_name, book_author from book WHERE \
-        book_name like '%{}%'""".format(keyword)
+# def query_search(keyword):
+#     query = """SELECT book_name, book_author from book WHERE \
+#         book_name like '%{}%'""".format(keyword)
+#     return query
+
+# def check_status(unique_id):
+#     query = """SELECT date_start, date_finish from rent WHERE \
+#         unique_id={}""".format(unique_id)
+#     return query
+
+def query_search():
+    query = "What book you wanna find?"
     return query
 
-def check_status(unique_id):
-    query = """SELECT date_start, date_finish from rent WHERE \
-        unique_id={}""".format(unique_id)
+def check_status():
+    query = "Sorry, I not integrated yet with database. \
+        Wait for several days please :)"
     return query
 
-
-@app.route("/webhook", methods=['POST'])
+@app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
 
@@ -41,17 +49,21 @@ def callback():
 
     return 'OK'
 
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    print(event.message.text)
+    if str(event.message.text).lower == "search":
+        send_text = query_search()
+    elif str(event.message.text).lower == "check status":
+        send_text = check_status()
+    else:
+        send_text = "Sorry now I just know about search or check status"
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text)
+        TextSendMessage(text=send_text)
     )
-
-
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, ssl_context=('server.crt', 'server.key'))
+    # app.run(host='0.0.0.0', port=port, ssl_context=('server.crt', 'server.key'))
+    app.run(host='0.0.0.0', port=port)
