@@ -27,7 +27,7 @@ def check_status(unique_id):
     return query
 
 
-@app.route("/webhook", methods=['POST'])
+@app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
 
@@ -54,4 +54,4 @@ def handle_text_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, ssl_context=('server.crt', 'server.key'))
+    app.run(host='0.0.0.0', port=port) #, ssl_context=('server.crt', 'server.key'))
