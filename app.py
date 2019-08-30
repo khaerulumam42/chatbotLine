@@ -43,7 +43,7 @@ def query_search(keywords):
 
 def check_status(unique_id):
     query = "This is your unique id {}, but sorry I not integrated yet with database. \
-        Wait for several days please :)".format(unique_id)
+        Wait for several days please :)".format(unique_id[0])
     return query
 
 @app.route("/callback", methods=['POST'])
