@@ -1,38 +1,49 @@
 import os
 import yaml
-
+from dotenv import load_dotenv
+from os.path import join, dirname
 from decouple import config
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
+import pandas as pd
+import random
 
 app = Flask(__name__)
 
-with open("config.yml", 'r') as ymlfile:
-    conf = yaml.load(ymlfile)
+def get_configuration():
+    # configuration files for accessing environment 
+    dotenv_path = join(dirname(__file__), '.env')
+    load_dotenv(dotenv_path)
 
-line_bot_api = LineBotApi(conf['line_channel']['token'])
-handler = WebhookHandler(conf['line_channel']['secret'])
+    conf = {}
+    conf["secret"] = os.getenv("LINE_CHANNEL_SECRET")
+    conf["token"] = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 
+    return conf
 
-# def query_search(keyword):
-#     query = """SELECT book_name, book_author from book WHERE \
-#         book_name like '%{}%'""".format(keyword)
-#     return query
+with open("dataset.yaml", 'r') as f:
+    dataset = yaml.load(f)
+with open("utterance.yaml", 'r') as f:
+    utterance = yaml.load(f)
 
-# def check_status(unique_id):
-#     query = """SELECT date_start, date_finish from rent WHERE \
-#         unique_id={}""".format(unique_id)
-#     return query
+conf = get_configuration()
 
-def query_search():
-    query = "What book you wanna find?"
+line_bot_api = LineBotApi(conf['token'])
+handler = WebhookHandler(conf['secret'])
+books = pd.read_csv('books.csv')
+
+def query_keywords(keywords, top=5):
+    results = books[books['title'].str.contains(keywords, case=False)][:top]
+
+def query_search(keywords):
+    query = "Here the results list book by {} keywords".format(keywords)
     return query
 
-def check_status():
-    query = "Sorry, I not integrated yet with database. \
-        Wait for several days please :)"
+def check_status(unique_id):
+    query = "This is your unique id {}, but sorry I not integrated yet with database. \
+        Wait for several days please :)".format(unique_id)
     return query
 
 @app.route("/callback", methods=['POST'])
@@ -51,12 +62,22 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    if str(event.message.text).lower == "search":
-        send_text = query_search()
-    elif str(event.message.text).lower == "check status":
-        send_text = check_status()
+    phrase = str(event.message.text).lower()
+    for key in dataset.keys():
+        if phrase in dataset[key]:
+            intent = key
+
+    if intent == "greetings":
+        send_text = ''
+        utters = utterance["utter_greetings"]
+        for utter in utters:
+            send_text = send_text + utter
+    elif " ".join(phrase.split(' ')[:2]) == "search book":
+        send_text = query_search(" ".join(phrase.split(' ')[2:]))
+    elif phrase.split(' ')[0] == "status":
+        send_text = check_status(phrase.split(' ')[1:])
     else:
-        send_text = "Sorry now I just know about search or check status"
+        send_text = "Sorry now I just able to search book or check status"
 
     line_bot_api.reply_message(
         event.reply_token,
