@@ -68,21 +68,19 @@ def handle_text_message(event):
             intent = key
 
     if intent == "greetings":
-        send_text = ''
-        utters = utterance["utter_greetings"]
-        for utter in utters:
-            send_text = send_text + utter
+        send_text = utterance["utter_greetings"]
     elif " ".join(phrase.split(' ')[:2]) == "search book":
-        send_text = query_search(" ".join(phrase.split(' ')[2:]))
+        send_text = [query_search(" ".join(phrase.split(' ')[2:]))]
     elif phrase.split(' ')[0] == "status":
-        send_text = check_status(phrase.split(' ')[1:])
+        send_text = [check_status(phrase.split(' ')[1:])]
     else:
-        send_text = "Sorry now I just able to search book or check status"
+        send_text = ["Sorry now I just able to search book or check status"]
 
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=send_text)
-    )
+    for text in send_text:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=text)
+        )
 
 if __name__ == "__main__":
     port = 5000
