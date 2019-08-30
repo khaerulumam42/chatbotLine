@@ -63,6 +63,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     phrase = str(event.message.text).lower()
+    intent = None
     for key in dataset.keys():
         if phrase in dataset[key]:
             intent = key
