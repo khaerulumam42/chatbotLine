@@ -38,3 +38,10 @@ status:
   - check my status
   - status
   - check status
+register:
+  - register
+  - i want register
+  - register as user
+login:
+  - login
+  - log in

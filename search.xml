@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zs:searchRetrieveResponse xmlns:zs="http://www.loc.gov/zing/srw/">
+    <zs:version>1.1</zs:version>
+    <zs:numberOfRecords>1929</zs:numberOfRecords>
+    <zs:records>
+        <zs:record>
+            <zs:recordSchema/>
+            <zs:recordPacking>xml</zs:recordPacking>
+            <zs:recordData>
+                <record xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+                    <leader>     cam a22     1  4500</leader>
+                    <controlfield tag="001">569</controlfield>
+                    <controlfield tag="005">20180522152757.0</controlfield>
+                    <controlfield tag="008">      s1967                  0     eng  </controlfield>
+                    <datafield tag="035" ind1=" " ind2=" ">
+                        <subfield code="a">(OCoLC)272445</subfield>
+                    </datafield>
+                    <datafield tag="050" ind1=" " ind2=" ">
+                        <subfield code="a">HN703.5</subfield>
+                        <subfield code="b">.K6</subfield>
+                    </datafield>
+                    <datafield tag="100" ind1="0" ind2=" ">
+                        <subfield code="9">911</subfield>
+                        <subfield code="a">Koentjaraningrat,</subfield>
+                        <subfield code="d">1923-1999.</subfield>
+                    </datafield>
+                    <datafield tag="245" ind1="1" ind2="0">
+                        <subfield code="a">Villages in Indonesia,</subfield>
+                        <subfield code="c">edited by Koentjaraningrat.</subfield>
+                    </datafield>
+                    <datafield tag="260" ind1=" " ind2=" ">
+                        <subfield code="a">Ithaca, N.Y.,</subfield>
+                        <subfield code="b">Cornell Univ. Pr.</subfield>
+                        <subfield code="c">(1967)</subfield>
+                    </datafield>
+                    <datafield tag="300" ind1=" " ind2=" ">
+                        <subfield code="a">445 p.</subfield>
+                        <subfield code="b">maps.</subfield>
+                    </datafield>
+                    <datafield tag="500" ind1=" " ind2=" ">
+                        <subfield code="a">Prepd. under the auspices of the Modern Indonesia Project, Southeast Asia Program, Cornell Univ. Bibli.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="a">Villages</subfield>
+                        <subfield code="z">Indonesia.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="a">Ethnology</subfield>
+                        <subfield code="x">Indochina.</subfield>
+                        <subfield code="9">255848</subfield>
+                    </datafield>
+                    <datafield tag="710" ind1="2" ind2=" ">
+                        <subfield code="a">Cornell University.</subfield>
+                        <subfield code="b">Modern Indonesia Project.</subfield>
+                        <subfield code="9">51655</subfield>
+                    </datafield>
+                    <datafield tag="942" ind1=" " ind2=" ">
+                        <subfield code="c">GB</subfield>
+                        <subfield code="0">1</subfield>
+                    </datafield>
+                    <datafield tag="988" ind1=" " ind2=" ">
+                        <subfield code="a">569</subfield>
+                    </datafield>
+                    <datafield tag="997" ind1=" " ind2=" ">
+                        <subfield code="c">ขวัญจิต</subfield>
+                    </datafield>
+                    <datafield tag="999" ind1=" " ind2=" ">
+                        <subfield code="c">569</subfield>
+                        <subfield code="d">569</subfield>
+                        <subfield code="x">1</subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">lcc</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">HN07035 K6</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGB</subfield>
+                        <subfield code="9">714</subfield>
+                        <subfield code="a">TUPRIDI</subfield>
+                        <subfield code="b">TUPRIDI</subfield>
+                        <subfield code="c">GEN</subfield>
+                        <subfield code="d">1996-07-02</subfield>
+                        <subfield code="l">1</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">HN703.5 .K6</subfield>
+                        <subfield code="p">31379004253309</subfield>
+                        <subfield code="r">2018-06-25</subfield>
+                        <subfield code="s">2003-03-20</subfield>
+                        <subfield code="t"> </subfield>
+                        <subfield code="y">GB</subfield>
+                        <subfield code="z"> </subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">local</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">255517096</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGBB</subfield>
+                        <subfield code="9">715</subfield>
+                        <subfield code="a">TUBB</subfield>
+                        <subfield code="b">TUBB</subfield>
+                        <subfield code="c">BB</subfield>
+                        <subfield code="d">1996-07-02</subfield>
+                        <subfield code="l">3</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">2555/17096</subfield>
+                        <subfield code="p">31379007851042</subfield>
+                        <subfield code="q">2023-05-18</subfield>
+                        <subfield code="r">2018-05-22</subfield>
+                        <subfield code="s">2018-05-22</subfield>
+                        <subfield code="y">GB</subfield>
+                    </datafield>
+                    <datafield tag="100" ind1="z" ind2=" ">
+                        <subfield code="a">Koentjaraningrat, Raden Mas,</subfield>
+                        <subfield code="d">1923-</subfield>
+                    </datafield>
+                </record>
+            </zs:recordData>
+            <zs:recordPosition>1</zs:recordPosition>
+        </zs:record>
+        <zs:record>
+            <zs:recordSchema/>
+            <zs:recordPacking>xml</zs:recordPacking>
+            <zs:recordData>
+                <record xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+                    <leader>     nam a22        4500</leader>
+                    <controlfield tag="001">645</controlfield>
+                    <controlfield tag="005">20180528111440.0</controlfield>
+                    <controlfield tag="008">      s1973                  0     eng  </controlfield>
+                    <datafield tag="035" ind1=" " ind2=" ">
+                        <subfield code="a">(OCoLC)854799875</subfield>
+                    </datafield>
+                    <datafield tag="050" ind1=" " ind2=" ">
+                        <subfield code="a">JQ779.A55</subfield>
+                        <subfield code="b">D3</subfield>
+                    </datafield>
+                    <datafield tag="100" ind1="1" ind2=" ">
+                        <subfield code="a">Dake, Antonie C. A.,</subfield>
+                        <subfield code="d">1928-</subfield>
+                        <subfield code="9">1040</subfield>
+                    </datafield>
+                    <datafield tag="245" ind1="1" ind2="0">
+                        <subfield code="a">In the spirit of the red banteng;</subfield>
+                        <subfield code="b">Indonesian communists between Moscow and Peking, 1959-1965</subfield>
+                        <subfield code="c">[by] Antonie C. A. Dake.</subfield>
+                    </datafield>
+                    <datafield tag="260" ind1=" " ind2=" ">
+                        <subfield code="a">Paris,</subfield>
+                        <subfield code="b">Hague</subfield>
+                        <subfield code="c">[1973]</subfield>
+                    </datafield>
+                    <datafield tag="300" ind1=" " ind2=" ">
+                        <subfield code="a">479 p.</subfield>
+                        <subfield code="b">illus.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="a">Communist strategy.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="a">Communist parties.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="9">195527</subfield>
+                        <subfield code="a">Communism</subfield>
+                        <subfield code="z">Indonesia.</subfield>
+                        <subfield code="x">Indonesia.</subfield>
+                    </datafield>
+                    <datafield tag="942" ind1=" " ind2=" ">
+                        <subfield code="c">GB</subfield>
+                        <subfield code="0">1</subfield>
+                    </datafield>
+                    <datafield tag="988" ind1=" " ind2=" ">
+                        <subfield code="a">645</subfield>
+                    </datafield>
+                    <datafield tag="997" ind1=" " ind2=" ">
+                        <subfield code="c">ทิพย์วารี</subfield>
+                    </datafield>
+                    <datafield tag="999" ind1=" " ind2=" ">
+                        <subfield code="c">645</subfield>
+                        <subfield code="d">645</subfield>
+                        <subfield code="x">0</subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">local</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">2555117420</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGBB</subfield>
+                        <subfield code="9">789</subfield>
+                        <subfield code="a">TUBB</subfield>
+                        <subfield code="b">TUBB</subfield>
+                        <subfield code="c">BB</subfield>
+                        <subfield code="d">1996-07-02</subfield>
+                        <subfield code="l">1</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">2555/117420</subfield>
+                        <subfield code="p">31379008036759</subfield>
+                        <subfield code="q">2023-05-18</subfield>
+                        <subfield code="r">2018-05-28</subfield>
+                        <subfield code="s">2018-05-28</subfield>
+                        <subfield code="y">GB</subfield>
+                    </datafield>
+                </record>
+            </zs:recordData>
+            <zs:recordPosition>2</zs:recordPosition>
+        </zs:record>
+        <zs:record>
+            <zs:recordSchema/>
+            <zs:recordPacking>xml</zs:recordPacking>
+            <zs:recordData>
+                <record xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+                    <leader>     cam a22        4500</leader>
+                    <controlfield tag="001">689</controlfield>
+                    <controlfield tag="005">20180218162612.0</controlfield>
+                    <controlfield tag="008">      s1972                  0     eng  </controlfield>
+                    <datafield tag="035" ind1=" " ind2=" ">
+                        <subfield code="a">(OCoLC)203119</subfield>
+                    </datafield>
+                    <datafield tag="050" ind1=" " ind2=" ">
+                        <subfield code="a">JQ762</subfield>
+                        <subfield code="b">.H6</subfield>
+                    </datafield>
+                    <datafield tag="100" ind1="1" ind2=" ">
+                        <subfield code="a">Holt, Claire.</subfield>
+                        <subfield code="9">1117</subfield>
+                    </datafield>
+                    <datafield tag="245" ind1="1" ind2="0">
+                        <subfield code="a">Culture and politics in Indonesia.</subfield>
+                        <subfield code="c">Edited by Claire Holt, with the assistance of Benedict R. O'G. Anderson and James Siegel.</subfield>
+                    </datafield>
+                    <datafield tag="260" ind1=" " ind2=" ">
+                        <subfield code="a">Ithaca [N.Y.]</subfield>
+                        <subfield code="b">Cornell University Press</subfield>
+                        <subfield code="c">[1972]</subfield>
+                    </datafield>
+                    <datafield tag="300" ind1=" " ind2=" ">
+                        <subfield code="a">348 p.</subfield>
+                        <subfield code="b">maps, tables.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="a">Political sociology.</subfield>
+                    </datafield>
+                    <datafield tag="651" ind1=" " ind2="4">
+                        <subfield code="a">Indonesia</subfield>
+                        <subfield code="x">Politics and government.</subfield>
+                    </datafield>
+                    <datafield tag="651" ind1=" " ind2="4">
+                        <subfield code="a">Indonesia</subfield>
+                        <subfield code="x">Civilization.</subfield>
+                    </datafield>
+                    <datafield tag="942" ind1=" " ind2=" ">
+                        <subfield code="c">GB</subfield>
+                        <subfield code="0">1</subfield>
+                    </datafield>
+                    <datafield tag="988" ind1=" " ind2=" ">
+                        <subfield code="a">689</subfield>
+                    </datafield>
+                    <datafield tag="997" ind1=" " ind2=" ">
+                        <subfield code="c">ขวัญจิต</subfield>
+                    </datafield>
+                    <datafield tag="997" ind1=" " ind2=" ">
+                        <subfield code="g">V</subfield>
+                    </datafield>
+                    <datafield tag="999" ind1=" " ind2=" ">
+                        <subfield code="c">689</subfield>
+                        <subfield code="d">689</subfield>
+                        <subfield code="x">3</subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">lcc</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">JQ0762 H6</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGB</subfield>
+                        <subfield code="9">844</subfield>
+                        <subfield code="a">TUPUEY</subfield>
+                        <subfield code="b">TUPUEY</subfield>
+                        <subfield code="c">GEN</subfield>
+                        <subfield code="d">1996-07-02</subfield>
+                        <subfield code="l">13</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">JQ762 .H6</subfield>
+                        <subfield code="p">31379002599513</subfield>
+                        <subfield code="r">2018-06-09</subfield>
+                        <subfield code="s">2018-02-18</subfield>
+                        <subfield code="t"> </subfield>
+                        <subfield code="y">GB</subfield>
+                        <subfield code="z"> </subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">lcc</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">JQ0762 H6</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGB</subfield>
+                        <subfield code="9">845</subfield>
+                        <subfield code="a">TULAMPANG</subfield>
+                        <subfield code="b">TULAMPANG</subfield>
+                        <subfield code="c">GEN</subfield>
+                        <subfield code="d">2002-01-04</subfield>
+                        <subfield code="e">7</subfield>
+                        <subfield code="l">0</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">JQ762 .H6</subfield>
+                        <subfield code="p">31379008769763</subfield>
+                        <subfield code="r">0000-00-00</subfield>
+                        <subfield code="s">0000-00-00</subfield>
+                        <subfield code="t">C. 2</subfield>
+                        <subfield code="y">GB</subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">local</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">PLSC_JQ_1972_689</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGB</subfield>
+                        <subfield code="9">1267652</subfield>
+                        <subfield code="a">TUPRIDI</subfield>
+                        <subfield code="b">TUPRIDI</subfield>
+                        <subfield code="c">CHARNVIT</subfield>
+                        <subfield code="d">2015-05-22</subfield>
+                        <subfield code="e">7</subfield>
+                        <subfield code="g">0.00</subfield>
+                        <subfield code="o">PLSC JQ 1972 689</subfield>
+                        <subfield code="p">31379014730288</subfield>
+                        <subfield code="r">2015-05-26</subfield>
+                        <subfield code="v">100.00</subfield>
+                        <subfield code="w">2015-05-22</subfield>
+                        <subfield code="y">GB</subfield>
+                    </datafield>
+                </record>
+            </zs:recordData>
+            <zs:recordPosition>3</zs:recordPosition>
+        </zs:record>
+        <zs:record>
+            <zs:recordSchema/>
+            <zs:recordPacking>xml</zs:recordPacking>
+            <zs:recordData>
+                <record xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+                    <leader>     nam a22        4500</leader>
+                    <controlfield tag="001">695</controlfield>
+                    <controlfield tag="005">20180528142911.0</controlfield>
+                    <controlfield tag="008">      s1972                  0     eng  </controlfield>
+                    <datafield tag="035" ind1=" " ind2=" ">
+                        <subfield code="a">(OCoLC)579117</subfield>
+                    </datafield>
+                    <datafield tag="050" ind1=" " ind2=" ">
+                        <subfield code="a">JQ773.5</subfield>
+                        <subfield code="b">.L4</subfield>
+                    </datafield>
+                    <datafield tag="100" ind1="1" ind2=" ">
+                        <subfield code="a">Lev, Daniel S.</subfield>
+                        <subfield code="9">1124</subfield>
+                    </datafield>
+                    <datafield tag="245" ind1="1" ind2="0">
+                        <subfield code="a">Islamic courts in Indonesia;</subfield>
+                        <subfield code="b">a study in the political bases of legal institutions,</subfield>
+                        <subfield code="c">by Daniel S. Lev.</subfield>
+                    </datafield>
+                    <datafield tag="260" ind1=" " ind2=" ">
+                        <subfield code="a">Berkeley,</subfield>
+                        <subfield code="b">University of California Press</subfield>
+                        <subfield code="c">[1972]</subfield>
+                    </datafield>
+                    <datafield tag="300" ind1=" " ind2=" ">
+                        <subfield code="a">281 p.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="a">Courts, Islamic</subfield>
+                        <subfield code="z">Indonesia.</subfield>
+                        <subfield code="9">1125</subfield>
+                    </datafield>
+                    <datafield tag="942" ind1=" " ind2=" ">
+                        <subfield code="c">GB</subfield>
+                        <subfield code="0">1</subfield>
+                    </datafield>
+                    <datafield tag="988" ind1=" " ind2=" ">
+                        <subfield code="a">695</subfield>
+                    </datafield>
+                    <datafield tag="997" ind1=" " ind2=" ">
+                        <subfield code="c">ขวัญจิต</subfield>
+                    </datafield>
+                    <datafield tag="999" ind1=" " ind2=" ">
+                        <subfield code="c">695</subfield>
+                        <subfield code="d">695</subfield>
+                        <subfield code="x">0</subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">local</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">2555142203</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGBB</subfield>
+                        <subfield code="9">851</subfield>
+                        <subfield code="a">TUBB</subfield>
+                        <subfield code="b">TUBB</subfield>
+                        <subfield code="c">BB</subfield>
+                        <subfield code="d">1996-07-02</subfield>
+                        <subfield code="l">2</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">2555/142203</subfield>
+                        <subfield code="p">31379007178685</subfield>
+                        <subfield code="q">2023-05-18</subfield>
+                        <subfield code="r">2018-05-28</subfield>
+                        <subfield code="s">2018-05-28</subfield>
+                        <subfield code="y">GB</subfield>
+                    </datafield>
+                </record>
+            </zs:recordData>
+            <zs:recordPosition>4</zs:recordPosition>
+        </zs:record>
+        <zs:record>
+            <zs:recordSchema/>
+            <zs:recordPacking>xml</zs:recordPacking>
+            <zs:recordData>
+                <record xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+                    <leader>     cam a22      a 4500</leader>
+                    <controlfield tag="001">721</controlfield>
+                    <controlfield tag="005">20180524142752.0</controlfield>
+                    <controlfield tag="008">      s1968                  0     eng</controlfield>
+                    <datafield tag="035" ind1=" " ind2=" ">
+                        <subfield code="a">(OCoLC)944132323</subfield>
+                    </datafield>
+                    <datafield tag="050" ind1=" " ind2=" ">
+                        <subfield code="a">JQ772.Z1</subfield>
+                        <subfield code="b">M6</subfield>
+                    </datafield>
+                    <datafield tag="100" ind1="1" ind2=" ">
+                        <subfield code="a">Moertono, Soemarsaid,</subfield>
+                        <subfield code="d">1922-</subfield>
+                        <subfield code="9">1183</subfield>
+                    </datafield>
+                    <datafield tag="245" ind1="1" ind2="0">
+                        <subfield code="a">State and statecraft in old Java :</subfield>
+                        <subfield code="b">a study of the later Mataram period, 16th to 19th century /</subfield>
+                        <subfield code="c">by Soemarsaid Moertono.</subfield>
+                    </datafield>
+                    <datafield tag="260" ind1=" " ind2=" ">
+                        <subfield code="a">Ithaca, N.Y.,</subfield>
+                        <subfield code="b">Dept. of Asian studies, Cornell Univ.,</subfield>
+                        <subfield code="c">1968.</subfield>
+                    </datafield>
+                    <datafield tag="300" ind1=" " ind2=" ">
+                        <subfield code="a">164 p.</subfield>
+                    </datafield>
+                    <datafield tag="490" ind1="0" ind2=" ">
+                        <subfield code="a">Cornell Modern Indonesia Project. Monograph series</subfield>
+                    </datafield>
+                    <datafield tag="500" ind1=" " ind2=" ">
+                        <subfield code="a">Reprint from his M.A. Thesis in the Dept. of History, Cornell Univ., 1964.</subfield>
+                    </datafield>
+                    <datafield tag="650" ind1=" " ind2="4">
+                        <subfield code="a">Civil service</subfield>
+                        <subfield code="z">Java.</subfield>
+                        <subfield code="9">1184</subfield>
+                    </datafield>
+                    <datafield tag="651" ind1=" " ind2="4">
+                        <subfield code="a">Java (Indonesia)</subfield>
+                        <subfield code="x">Politics and government.</subfield>
+                    </datafield>
+                    <datafield tag="710" ind1="2" ind2=" ">
+                        <subfield code="a">Cornell University.</subfield>
+                        <subfield code="b">Southeast Asia Studies.</subfield>
+                        <subfield code="9">1186</subfield>
+                    </datafield>
+                    <datafield tag="942" ind1=" " ind2=" ">
+                        <subfield code="c">GB</subfield>
+                        <subfield code="2">local</subfield>
+                        <subfield code="0">1</subfield>
+                    </datafield>
+                    <datafield tag="988" ind1=" " ind2=" ">
+                        <subfield code="a">721</subfield>
+                    </datafield>
+                    <datafield tag="997" ind1=" " ind2=" ">
+                        <subfield code="c">ขวัญจิต</subfield>
+                        <subfield code="g">V</subfield>
+                    </datafield>
+                    <datafield tag="999" ind1=" " ind2=" ">
+                        <subfield code="c">721</subfield>
+                        <subfield code="d">721</subfield>
+                        <subfield code="x">2</subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">1</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">lcc</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">JQ0772 Z1 M6</subfield>
+                        <subfield code="7">1</subfield>
+                        <subfield code="8">CGBB</subfield>
+                        <subfield code="9">888</subfield>
+                        <subfield code="a">TUBB</subfield>
+                        <subfield code="b">TUBB</subfield>
+                        <subfield code="c">BB</subfield>
+                        <subfield code="d">1996-07-02</subfield>
+                        <subfield code="l">2</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">JQ772.Z1 M6</subfield>
+                        <subfield code="p">31379000832163</subfield>
+                        <subfield code="r">2002-11-24</subfield>
+                        <subfield code="s">2002-11-24</subfield>
+                        <subfield code="t"> </subfield>
+                        <subfield code="y">GB</subfield>
+                        <subfield code="z"> </subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">local</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">255554953</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGBB</subfield>
+                        <subfield code="9">889</subfield>
+                        <subfield code="a">TUBB</subfield>
+                        <subfield code="b">TUBB</subfield>
+                        <subfield code="c">BB</subfield>
+                        <subfield code="d">2003-02-27</subfield>
+                        <subfield code="l">1</subfield>
+                        <subfield code="m">0</subfield>
+                        <subfield code="o">2555/54953</subfield>
+                        <subfield code="p">31379005791117</subfield>
+                        <subfield code="q">2023-05-18</subfield>
+                        <subfield code="r">2018-05-24</subfield>
+                        <subfield code="s">2018-05-24</subfield>
+                        <subfield code="y">GB</subfield>
+                    </datafield>
+                    <datafield tag="952" ind1=" " ind2=" ">
+                        <subfield code="0">0</subfield>
+                        <subfield code="1">0</subfield>
+                        <subfield code="2">local</subfield>
+                        <subfield code="4">0</subfield>
+                        <subfield code="6">PLSC_JQ_1968_721</subfield>
+                        <subfield code="7">0</subfield>
+                        <subfield code="8">CGB</subfield>
+                        <subfield code="9">1268643</subfield>
+                        <subfield code="a">TUPRIDI</subfield>
+                        <subfield code="b">TUPRIDI</subfield>
+                        <subfield code="c">CHARNVIT</subfield>
+                        <subfield code="d">2015-05-29</subfield>
+                        <subfield code="e">7</subfield>
+                        <subfield code="g">0.00</subfield>
+                        <subfield code="o">PLSC JQ 1968 721</subfield>
+                        <subfield code="p">31379014739511</subfield>
+                        <subfield code="r">2015-06-10</subfield>
+                        <subfield code="v">100.00</subfield>
+                        <subfield code="w">2015-05-29</subfield>
+                        <subfield code="y">GB</subfield>
+                    </datafield>
+                </record>
+            </zs:recordData>
+            <zs:recordPosition>5</zs:recordPosition>
+        </zs:record>
+    </zs:records>
+    <zs:echoedSearchRetrieveRequest>
+        <zs:version>1.1</zs:version>
+        <zs:query>indonesia</zs:query>
+        <zs:maximumRecords>5</zs:maximumRecords>
+        <zs:recordPacking>xml</zs:recordPacking>
+    </zs:echoedSearchRetrieveRequest>
+</zs:searchRetrieveResponse>

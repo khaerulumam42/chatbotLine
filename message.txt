@@ -1,0 +1,27 @@
+Dear Kurapati, 
+
+You can now access the following API: 
+
+1. SRU API for searching for books, 
+
+https://traindb.tulibs.net/sru/biblios 
+
+For example: 
+https://traindb.tulibs.net/sru/biblios?version=1.1&operation=searchRetrieve&query=law&maximumRecords=5 
+
+HTTP authen : 
+sru / theeWa3x-theemu2M 
+
+2. ILS-DI API to get information about user's checked-out book including due date. 
+
+https://traindb.tulibs.net/cgi-bin/koha/ilsdi.pl 
+
+Remember you have to AuthenticatePatron first to get your information. 
+
+You can login with he following account: 
+
+reddy / Atom-Iron-Take 
+
+You can also access OPAC at https://traindb.tulibs.net with above details. Please change your password. 
+
+Your account has 3 check-outs and 1 hold, some fee and some history of circulation
