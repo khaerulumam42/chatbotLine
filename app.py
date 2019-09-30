@@ -83,11 +83,9 @@ def check_event():
                 password=data_dict["password"],
                 phone=data_dict["phone"])
             if reg["status"] == "1":
-                send_text = """Yeay, registration succes. Your username is {0},
-                    and your email is {1}""".format(data_dict["name"], data_dict["email"])
+                send_text = """Yeay, registration succes. Your username is {0}, and your email is {1}""".format(data_dict["name"], data_dict["email"])
             else:
-                send_text = """Unfortunaetly registration failed because {},
-                    please try again""".format(reg["message"])
+                send_text = """Unfortunaetly registration failed because {0}, please try again""".format(reg["message"])
         elif "email" in phrase and "password" in phrase:
             data_dict = {}
             for data in phrase.split(','):
@@ -100,34 +98,27 @@ def check_event():
             if login["status"] == "1":
                 send_text = "Yeay, you are logged in as {}".format(login["username"])
             else:
-                send_text = "Unfortunaetly log in failed because {}, \
-                    please try again".format(login["message"].lower())
+                send_text = "Unfortunaetly log in failed because {}, please try again".format(login["message"].lower())
         else:
             for key in dataset.keys():
                 if phrase in dataset[key]:
                     intent = key
 
             if intent == "greetings":
-                send_text = ''
-                utters = utterance["utter_greetings"]
-                for utter in utters:
-                    send_text = send_text + utter
+                send_text = """Hey here LibraryBot. You can register and login to your account simply by type 'register' or 'login'. Hope it helps :)"""
+                # utters = utterance["utter_greetings"]
+                # for utter in utters:
+                #     send_text = send_text + utter
             elif " ".join(phrase.split(' ')[:2]) == "search book":
                 send_text = query_search(" ".join(phrase.split(' ')[2:]))
             elif phrase.split(' ')[0] == "status":
                 send_text = check_status(phrase.split(' ')[1:])
             elif intent == "register":
-                send_text = """for register, please fill your name, email, password and 
-                        phone number. Don't use your email password for register to us.
-                        example: name:Michael, email:michael@gmail.com,
-                            password:michael123, phone: 083276724652. Please fill with
-                                exact same format example in one chat"""
+                send_text = """for register, please fill your name, email, password and phone number. Don't use your email password for register to us. example: name:Michael, email:michael@gmail.com, password:michael123, phone: 083276724652. Please fill with exact same format example in one chat"""
             elif intent == "login":
-                send_text = """please fill your email and password that has been registered.
-                    example: email:michael@gmail.com, password:michael123. Please fill with 
-                                exact same format example in one chat"""
+                send_text = """please fill your email and password that has been registered. example: email:michael@gmail.com, password:michael123. Please fill with exact same format example in one chat"""
             else:
-                send_text = "Sorry now I just able to search book or check status"
+                send_text = "Sorry now I just able to register and login"
 
         line_bot_api.reply_message(
             reply_token,

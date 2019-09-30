@@ -1,5 +1,2 @@
 utter_greetings:
-  - Hey here Library bot.
-  - You can search list our book by 'search book <keywords>', for example 'search book Harry Potter'
-  - You also check you rent status by 'status <unique id>'', for example 'status id2345'.
-  - Hope it helps :)
+  - Hey here Library bot. \You can register and login to your account simple by type 'register' or 'login'. \Hope it helps :)
