@@ -64,6 +64,10 @@ def callback():
 
     return 'OK'
 
+@app.route("/")
+def check_event(event):
+    print(event)
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     phrase = str(event.message.text).lower()
