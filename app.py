@@ -64,9 +64,12 @@ def callback():
 
     return 'OK'
 
-@app.route("/")
-def check_event(event):
-    print(event)
+@app.route("/", methods=['GET', 'POST'])
+def check_event():
+    print(request.json)
+    print(request.form)
+    print(request.files)
+    print(request.values)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
