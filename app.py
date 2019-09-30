@@ -12,6 +12,7 @@ import random
 import utils_api
 import re
 import traceback
+
 app = Flask(__name__)
 
 def get_configuration():
@@ -34,7 +35,7 @@ conf = get_configuration()
 
 line_bot_api = LineBotApi(conf['token'])
 handler = WebhookHandler(conf['secret'])
-books = pd.read_csv('books.csv')
+# books = pd.read_csv('books.csv')
 
 
 def query_keywords(keywords, top=5):
@@ -65,74 +66,71 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    try:
-        phrase = str(event.message.text).lower()
-        intent = None
+    phrase = str(event.message.text).lower()
+    intent = None
 
-        if "name" in phrase and "phone" in phrase:
-            data_dict = {}
-            for data in phrase.split(','):
-                data = re.sub(r"\s+", "", data)
-                splitted_data = data.split(':')
-                data_dict[splitted_data[0]] = " ".join(splitted_data[1:])
-            
-            reg = utils_api.register_user(username=data_dict["name"],\
-                email=data_dict["email"],
-                password=data_dict["password"],
-                phone=data_dict["phone"])
-            if reg["status"] == "1":
-                send_text = "Yeay, registration succes. Your username is {0}, \
-                    and your email is {1}".format(data_dict["name"], data_dict["email"])
-            else:
-                send_text = "Unfortunaetly registration failed because {}, \
-                    please try again".format(reg["message"])
-        elif "email" in phrase and "password" in phrase:
-            data_dict = {}
-            for data in phrase.split(','):
-                data = re.sub(r"\s+", "", data)
-                splitted_data = data.split(':')
-                data_dict[splitted_data[0]] = " ".join(splitted_data[1:])
-            
-            login = utils_api.login_user(email=data_dict["email"],\
-                password=data_dict["password"])
-            if login["status"] == "1":
-                send_text = "Yeay, you are logged in as {}".format(login["username"])
-            else:
-                send_text = "Unfortunaetly log in failed because {}, \
-                    please try again".format(login["message"])
-        else:
-            for key in dataset.keys():
-                if phrase in dataset[key]:
-                    intent = key
+    # if "name" in phrase and "phone" in phrase:
+    #     data_dict = {}
+    #     for data in phrase.split(','):
+    #         data = re.sub(r"\s+", "", data)
+    #         splitted_data = data.split(':')
+    #         data_dict[splitted_data[0]] = " ".join(splitted_data[1:])
+        
+    #     reg = utils_api.register_user(username=data_dict["name"],\
+    #         email=data_dict["email"],
+    #         password=data_dict["password"],
+    #         phone=data_dict["phone"])
+    #     if reg["status"] == "1":
+    #         send_text = "Yeay, registration succes. Your username is {0}, \
+    #             and your email is {1}".format(data_dict["name"], data_dict["email"])
+    #     else:
+    #         send_text = "Unfortunaetly registration failed because {}, \
+    #             please try again".format(reg["message"])
+    # elif "email" in phrase and "password" in phrase:
+    #     data_dict = {}
+    #     for data in phrase.split(','):
+    #         data = re.sub(r"\s+", "", data)
+    #         splitted_data = data.split(':')
+    #         data_dict[splitted_data[0]] = " ".join(splitted_data[1:])
+        
+    #     login = utils_api.login_user(email=data_dict["email"],\
+    #         password=data_dict["password"])
+    #     if login["status"] == "1":
+    #         send_text = "Yeay, you are logged in as {}".format(login["username"])
+    #     else:
+    #         send_text = "Unfortunaetly log in failed because {}, \
+    #             please try again".format(login["message"])
+    # else:
+    for key in dataset.keys():
+        if phrase in dataset[key]:
+            intent = key
 
-            if intent == "greetings":
-                send_text = ''
-                utters = utterance["utter_greetings"]
-                for utter in utters:
-                    send_text = send_text + utter
-            elif " ".join(phrase.split(' ')[:2]) == "search book":
-                send_text = query_search(" ".join(phrase.split(' ')[2:]))
-            elif phrase.split(' ')[0] == "status":
-                send_text = check_status(phrase.split(' ')[1:])
-            elif intent == "register":
-                send_text = "for register, please fill your name, email, password and \
-                        phone number. Don't use your email password for register to us. \
-                        example: name:Michael, email:michael@gmail.com, \
-                            password:michael123, phone: 083276724652. Please fill with \
-                                exact same format example in one chat"
-            elif intent == "login":
-                send_text = "please fill your email and password that has been registered.\
-                    example: email:michael@gmail.com, password:michael123. Please fill with \
-                                exact same format example in one chat"
-            else:
-                send_text = "Sorry now I just able to search book or check status"
+    if intent == "greetings":
+        send_text = ''
+        utters = utterance["utter_greetings"]
+        for utter in utters:
+            send_text = send_text + utter
+    elif " ".join(phrase.split(' ')[:2]) == "search book":
+        send_text = query_search(" ".join(phrase.split(' ')[2:]))
+    elif phrase.split(' ')[0] == "status":
+        send_text = check_status(phrase.split(' ')[1:])
+    elif intent == "register":
+        send_text = "for register, please fill your name, email, password and \
+                phone number. Don't use your email password for register to us. \
+                example: name:Michael, email:michael@gmail.com, \
+                    password:michael123, phone: 083276724652. Please fill with \
+                        exact same format example in one chat"
+    elif intent == "login":
+        send_text = "please fill your email and password that has been registered.\
+            example: email:michael@gmail.com, password:michael123. Please fill with \
+                        exact same format example in one chat"
+    else:
+        send_text = "Sorry now I just able to search book or check status"
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=send_text)
-        )
-    except Exception as e:
-        print(traceback.format_exc())
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=send_text)
+    )
 
 if __name__ == "__main__":
     port = 5000
