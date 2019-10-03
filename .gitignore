@@ -5,3 +5,4 @@ server.key
 server.pem
 server.csr
 .env
+*.db
