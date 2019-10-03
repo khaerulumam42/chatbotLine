@@ -7,7 +7,7 @@ def register_user(username, email, password, phone):
     return reg.json()
 
 def login_user(email, password):
-    print(email, password)
     data = {"email":email, "password":password}
+    print(data)    
     login = requests.post('http://18.223.160.194/Laundry/api/eblogin', files=data)
     return login.json()
