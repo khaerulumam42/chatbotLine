@@ -8,23 +8,18 @@ def create_connection(db_file='LibraryBot.db'):
     :param db_file: database file
     :return: Connection object or None
     """
-    conn = None
+    cursor = None
     try:
-        conn = sqlite3.connect(db_file)
-        return conn
+        cursor = sqlite3.connect(db_file)
+        return cursor
     except Error as e:
         print(e)
  
-    return conn
+    return cursor
 
-def create_table(conn, create_table_sql):
-    """ create a table from the create_table_sql statement
-    :param conn: Connection object
-    :param create_table_sql: a CREATE TABLE statement
-    :return:
-    """
+def create_table(cursor, create_table_sql):
     try:
-        c = conn.cursor()
+        c = cursor.cursor()
         c.execute(create_table_sql)
     except Error as e:
         print(e)
@@ -35,9 +30,9 @@ def create_db():
         email TEXT NOT NULL,
         password TEXT NOT NULL
         );"""
-    conn = create_connection()
-    if conn is not None:
-        create_table(conn, create_table_sql)
+    cursor = create_connection()
+    if cursor is not None:
+        create_table(cursor, create_table_sql)
         return True
     else:
         print("Error! cannot create the database connection.")
@@ -49,21 +44,21 @@ def register_user(username, email, password, phone):
     reg = requests.post('http://18.223.160.194/Laundry/api/ebregister', data=data)
     return reg.json()
 
-def delete_logged_in(conn, user_id):
+def delete_logged_in(cursor, user_id):
     sql = """DELETE FROM UserData WHERE user_id={}""".format(user_id)
-    cur = conn.cursor()
+    cur = cursor.cursor()
     cur.execute(sql)
-    conn.commit()
+    cursor.commit()
 
 def login_user(email, password):
     data = {"email":email, "password":password}
     login = requests.post('http://18.223.160.194/Laundry/api/eblogin', data=data)
     return login.json()
 
-def check_logged_in(conn, user_id):
+def check_logged_in(cursor, user_id):
     sql = """SELECT email, password FROM UserData WHERE user_id='{}'""".format(user_id)
-    conn.execute(sql)
-    fetched = conn.fetchall()
+    cursor.execute(sql)
+    fetched = cursor.fetchall()
     if fetched != []:
         email = fetched[0][0]
         password = fetched[0][1]
@@ -72,11 +67,11 @@ def check_logged_in(conn, user_id):
     else:
         return []
 
-def insert_logged_in(conn, user_id, email, password):
+def insert_logged_in(cursor, user_id, email, password):
     sql = """INSERT INTO UserData (user_id, email, password) VALUES ({0}, {1}, {2})""".format(user_id,email, password)
-    cur = conn.cursor()
+    cur = cursor.cursor()
     cur.execute(sql)
-    conn.commit()
+    cursor.commit()
 
 def homelisting():
     book_list = requests.post('http://18.223.160.194/Laundry/api/homelisting')

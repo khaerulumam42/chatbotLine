@@ -108,7 +108,7 @@ def check_event():
             if login["status"] == "1":
                 send_text = "Yeay, you are logged in as {}".format(login["username"])
                 conn = utils_api.create_connection()
-                utils_api.insert_logged_in(conn, user_id, \
+                utils_api.insert_logged_in(conn.cursor(), user_id, \
                     data_dict["email"],data_dict["password"])
             else:
                 send_text = "Unfortunaetly log in failed because {}, please try again".format(login["message"].lower())
@@ -130,7 +130,7 @@ def check_event():
                 send_text = """for register, please fill your name, email, password and phone number. Don't use your email password for register to us. example: name:Michael, email:michael@gmail.com, password:michael123, phone: 083276724652. Please fill with exact same format example in one chat"""
             elif intent == "login":
                 conn = utils_api.create_connection()
-                logged_in = utils_api.check_logged_in(conn, user_id)
+                logged_in = utils_api.check_logged_in(conn.cursor(), user_id)
                 if logged_in != []:
                     send_text = "You already logged in as {0}, if it is not your account please logout {0} and then type 'register' or 'login' to me".format(logged_in["username"])
                 else:
