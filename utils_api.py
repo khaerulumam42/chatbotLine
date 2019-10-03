@@ -17,9 +17,9 @@ def create_connection(db_file='LibraryBot.db'):
  
     return cursor
 
-def create_table(cursor, create_table_sql):
+def create_table(conn, create_table_sql):
     try:
-        c = cursor.cursor()
+        c = conn.cursor()
         c.execute(create_table_sql)
     except Error as e:
         print(e)
@@ -44,20 +44,23 @@ def register_user(username, email, password, phone):
     reg = requests.post('http://18.223.160.194/Laundry/api/ebregister', data=data)
     return reg.json()
 
-def delete_logged_in(cursor, user_id):
-    sql = """DELETE FROM UserData WHERE user_id={}""".format(user_id)
-    cur = cursor.cursor()
-    cur.execute(sql)
-    cursor.commit()
+def delete_logged_in(conn, user_id):
+    cursor = conn.cursor()
+    sql = """DELETE FROM UserData WHERE user_id='?'"""
+    data = (user_id)
+    cursor.execute(sql, data)
+    conn.commit()
 
 def login_user(email, password):
     data = {"email":email, "password":password}
     login = requests.post('http://18.223.160.194/Laundry/api/eblogin', data=data)
     return login.json()
 
-def check_logged_in(cursor, user_id):
-    sql = """SELECT email, password FROM UserData WHERE user_id='{}'""".format(user_id)
-    cursor.execute(sql)
+def check_logged_in(conn, user_id):
+    cursor = conn.cursor()
+    sql = """SELECT email, password FROM UserData WHERE user_id='?'"""
+    data = (user_id)
+    cursor.execute(sql, data)
     fetched = cursor.fetchall()
     if fetched != []:
         email = fetched[0][0]
@@ -67,15 +70,13 @@ def check_logged_in(cursor, user_id):
     else:
         return []
 
-def insert_logged_in(cursor, user_id, email, password):
-    sql = """INSERT INTO UserData (user_id, email, password) VALUES ({0}, {1}, {2})""".format(user_id,email, password)
-    cur = cursor.cursor()
-    cur.execute(sql)
-    cursor.commit()
+def insert_logged_in(conn, user_id, email, password):
+    cursor = conn.cursor()
+    sql = """INSERT INTO UserData (user_id, email, password) VALUES (?, ?, ?)"""
+    data = (user_id,email, password)
+    cursor.execute(sql, data)
+    conn.commit()
 
 def homelisting():
     book_list = requests.post('http://18.223.160.194/Laundry/api/homelisting')
     return book_list.json()
-
-    
-
