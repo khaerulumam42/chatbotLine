@@ -124,8 +124,10 @@ def check_event():
             reply_token,
             TextSendMessage(text=send_text)
         )
+        return 'OK'
     except:
-        pass
+        return 'FAIL'
+
 
 
 # @handler.add(MessageEvent, message=TextMessage)
