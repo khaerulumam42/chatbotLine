@@ -40,14 +40,17 @@ handler = WebhookHandler(conf['secret'])
 
 
 def query_keywords(keywords, top=5):
-    book_found = []
+    book_found, book_added = [], []
     book_list = utils_api.homelisting()
     i = 0
     if book_list["status"] == "1":
         for book in book_list["listing"]:
             for keyword in keywords.split(' '):
                 if keyword in book["book_name"] and i < top:
-                    book_found.extend(book)
+                    if book["book_id"] not in book_added:
+                        book_added.append(book["book_id"])
+                        book_found.append(book)
+                        i += 1
     return book_found
 
 def query_search(keywords):
@@ -139,7 +142,7 @@ def check_event():
                 book_found =  str(query_keywords(keywords))
                 if logged_in != [] and book_found != "[]":
                     send_text = "Hey {0} it's book for you. {1}".format(logged_in["username"], book_found)
-                elif book_found == []:
+                elif book_found == "[]":
                     send_text = "Sorry {0}, there is no book with keywords {1}".format(logged_in["username"], keywords)
                 else:
                     send_text = "You must login before finding books. Type 'login' or 'register' if you never register our platform"
