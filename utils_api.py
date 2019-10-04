@@ -46,8 +46,8 @@ def register_user(username, email, password, phone):
 
 def delete_logged_in(conn, user_id):
     cursor = conn.cursor()
-    sql = """DELETE FROM UserData WHERE user_id='?'"""
-    data = (user_id)
+    sql = """DELETE FROM UserData WHERE user_id=?"""
+    data = (user_id,)
     cursor.execute(sql, data)
     conn.commit()
 
@@ -58,8 +58,8 @@ def login_user(email, password):
 
 def check_logged_in(conn, user_id):
     cursor = conn.cursor()
-    sql = """SELECT email, password FROM UserData WHERE user_id='?'"""
-    data = (user_id)
+    sql = """SELECT email, password FROM UserData WHERE user_id=?"""
+    data = (user_id,)
     cursor.execute(sql, data)
     fetched = cursor.fetchall()
     if fetched != []:

@@ -97,33 +97,51 @@ def check_event():
             else:
                 send_text = """Unfortunately registration failed because {0}, please try again""".format(reg["message"])
         elif "email" in phrase and "password" in phrase:
-            data_dict = {}
-            for data in phrase.split(','):
-                data = re.sub(r"\s+", "", data)
-                splitted_data = data.split(':')
-                data_dict[splitted_data[0]] = " ".join(splitted_data[1:])
-            
-            login = utils_api.login_user(email=data_dict["email"],\
-                password=data_dict["password"])
-            if login["status"] == "1":
-                send_text = "Yeay, you are logged in as {}".format(login["username"])
-                conn = utils_api.create_connection()
-                utils_api.insert_logged_in(conn, user_id, \
-                    data_dict["email"],data_dict["password"])
+            conn = utils_api.create_connection()
+            logged_in = utils_api.check_logged_in(conn, user_id)
+            if logged_in != []:
+                send_text = "You already logged in as {0}, if it is not your account please logout {0} and then type 'register' or 'login' to me".format(logged_in["username"])
             else:
-                send_text = "Unfortunaetly log in failed because {}, please try again".format(login["message"].lower())
+                data_dict = {}
+                for data in phrase.split(','):
+                    data = re.sub(r"\s+", "", data)
+                    splitted_data = data.split(':')
+                    data_dict[splitted_data[0]] = " ".join(splitted_data[1:])
+                
+                login = utils_api.login_user(email=data_dict["email"],\
+                    password=data_dict["password"])
+                if login["status"] == "1":
+                    send_text = "Yeay, you are logged in as {}".format(login["username"])
+                    conn = utils_api.create_connection()
+                    utils_api.insert_logged_in(conn, user_id, \
+                        data_dict["email"],data_dict["password"])
+                else:
+                    send_text = "Unfortunaetly log in failed because {}, please try again".format(login["message"].lower())
+        elif "logout" in phrase or "log out" in phrase:
+            conn = utils_api.create_connection()
+            utils_api.delete_logged_in(conn, user_id)
+            send_text = "You succesfully logout from last account, you must login to use our features"
         else:
             for key in dataset.keys():
                 if phrase in dataset[key]:
                     intent = key
 
             if intent == "greetings":
-                send_text = """Hey here LibraryBot. You can register and login to your account simply by type 'register' or 'login'. Hope it helps :)"""
+                send_text = """Hey here LibraryBot. You can register and login to your account simply by type 'register' or 'login'. You can also fin book by type 'search book <keywords>'. Hope it helps :)"""
                 # utters = utterance["utter_greetings"]
                 # for utter in utters:
                 #     send_text = send_text + utter
             elif " ".join(phrase.split(' ')[:2]) == "search book":
-                send_text = query_search(" ".join(phrase.split(' ')[2:]))
+                conn = utils_api.create_connection()
+                logged_in = utils_api.check_logged_in(conn, user_id)
+                keywords = " ".join(phrase.split(' ')[2:])
+                book_found =  str(query_keywords(keywords))
+                if logged_in != [] and book_found != []:
+                    send_text = "Hey {0} it's book for you. {1}".format(logged_in["username"], book_found)
+                elif book_found == []:
+                    send_text = "Sorry {0}, there is no book with keywords {1}".format(logged_in["username"], keywords)
+                else:
+                    send_text = "You must login before finding books. Type 'login' or 'register' if you never register our platform"
             elif phrase.split(' ')[0] == "status":
                 send_text = check_status(phrase.split(' ')[1:])
             elif intent == "register":
@@ -134,7 +152,7 @@ def check_event():
                 if logged_in != []:
                     send_text = "You already logged in as {0}, if it is not your account please logout {0} and then type 'register' or 'login' to me".format(logged_in["username"])
                 else:
-                    send_text = """please fill your email and password that has been registered. example: email:michael@gmail.com, password:michael123. Please fill with exact same format example in one chat"""
+                    send_text = """Please fill your email and password that has been registered. example: email:michael@gmail.com, password:michael123. Please fill with exact same format example in one chat"""
             else:
                 send_text = "Sorry now I just able to find book, register and login"
 
