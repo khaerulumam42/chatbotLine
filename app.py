@@ -100,7 +100,7 @@ def check_event():
             conn = utils_api.create_connection()
             logged_in = utils_api.check_logged_in(conn, user_id)
             if logged_in != []:
-                send_text = "You already logged in as {0}, if it is not your account please logout {0} and then type 'register' or 'login' to me".format(logged_in["username"])
+                send_text = "You already logged in as {0}, if it is not your account please type 'logout {0}' and then type 'register' or 'login' to me".format(logged_in["username"])
             else:
                 data_dict = {}
                 for data in phrase.split(','):
@@ -118,6 +118,7 @@ def check_event():
                 else:
                     send_text = "Unfortunaetly log in failed because {}, please try again".format(login["message"].lower())
         elif "logout" in phrase or "log out" in phrase:
+            # db_uname = " ".join(phrase.split(' ')[1:])
             conn = utils_api.create_connection()
             utils_api.delete_logged_in(conn, user_id)
             send_text = "You succesfully logout from last account, you must login to use our features"
@@ -136,7 +137,7 @@ def check_event():
                 logged_in = utils_api.check_logged_in(conn, user_id)
                 keywords = " ".join(phrase.split(' ')[2:])
                 book_found =  str(query_keywords(keywords))
-                if logged_in != [] and book_found != []:
+                if logged_in != [] and book_found != "[]":
                     send_text = "Hey {0} it's book for you. {1}".format(logged_in["username"], book_found)
                 elif book_found == []:
                     send_text = "Sorry {0}, there is no book with keywords {1}".format(logged_in["username"], keywords)
