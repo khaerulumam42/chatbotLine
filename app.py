@@ -46,7 +46,7 @@ def query_keywords(keywords, top=5):
     if book_list["status"] == "1":
         for book in book_list["listing"]:
             for keyword in keywords.split(' '):
-                if keyword in book["book_name"] and i < top:
+                if keyword.lower() in book["book_name"].lower() and i < top:
                     if book["book_id"] not in book_added:
                         book_added.append(book["book_id"])
                         book_found.append(book)
